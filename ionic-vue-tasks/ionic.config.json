@@ -1,0 +1,7 @@
+{
+  "name": "ionic-vue-tasks",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue-vite"
+}
