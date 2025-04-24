@@ -17,15 +17,21 @@
                 <ion-button @click="saveTask" shape="round">Salvar</ion-button>
             </div>
 
-            <ion-popover :is-open="datePopoverIsOpen" :event="dateEvent" @didDismiss="datePopoverIsOpen = false">
+            <ion-popover :is-open="datePopoverIsOpen" alignment="center" :event="dateEvent" @didDismiss="datePopoverIsOpen = false">
                 <ion-content>
                     <ion-datetime presentation="date" v-model="date" @ionChange="updateFormattedDate" locale="pt-BR" />
+                    <div class="modal-ok-button-wrapper">
+                        <ion-button @click="datePopoverIsOpen = false">Ok</ion-button>
+                    </div>
                 </ion-content>
             </ion-popover>
 
-            <ion-popover :is-open="timePopoverIsOpen" :event="timeEvent" @didDismiss="timePopoverIsOpen = false">
+            <ion-popover :is-open="timePopoverIsOpen" alignment="center" :event="timeEvent" @didDismiss="timePopoverIsOpen = false">
                 <ion-content>
                     <ion-datetime presentation="time" hour-cycle="h23" v-model="time" @ionChange="updateFormattedTime" locale="pt-BR" />
+                    <div class="modal-ok-button-wrapper">
+                        <ion-button @click="timePopoverIsOpen = false">Ok</ion-button>
+                    </div>
                 </ion-content>
             </ion-popover>
         </ion-content>
@@ -97,5 +103,10 @@ const saveTask = async () => {
     flex-direction: column;
     gap: 20px;
     align-items: center;
+}
+
+.modal-ok-button-wrapper{
+    display: flex;
+    justify-content: end;
 }
 </style>
