@@ -8,9 +8,11 @@
 
         <ion-content :fullscreen="true" class="ion-padding">
             <div id="container">
-                <ion-list>
+                <ion-list v-if="tasks.length">
                     <TaskItem v-for="task in tasks" :key="task.id" :task="task" @delete="deleteTask(task)" @toggle="toggleDone(task)" />
                 </ion-list>
+
+                <h5 v-if="!tasks.length" >Não há tarefas adicionadas!</h5>
 
                 <ion-fab vertical="bottom" horizontal="end" slot="fixed">
                     <ion-fab-button @click="addNewTask">
@@ -41,4 +43,10 @@ const addNewTask = async () => {
 onMounted(getTasks);
 </script>
 
-<style scoped></style>
+<style scoped>
+#container{
+    display: flex;
+    justify-content: center;
+    height: 100%;
+}
+</style>
