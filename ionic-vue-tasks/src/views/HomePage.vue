@@ -28,14 +28,17 @@ import { add } from "ionicons/icons";
 import TaskItem from "@/components/TaskItem.vue";
 import { useTasks } from "@/composables/useTasks";
 import { useRouter } from "vue-router";
+import { onMounted } from "vue";
 
 const router = useRouter();
 
-const { tasks, deleteTask, toggleDone } = useTasks();
+const { tasks, getTasks, deleteTask, toggleDone } = useTasks();
 
 const addNewTask = async () => {
     router.push("/add-task");
 };
+
+onMounted(getTasks);
 </script>
 
 <style scoped></style>

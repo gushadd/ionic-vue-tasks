@@ -5,7 +5,7 @@
                 <ion-checkbox @ionChange="toggleDone" :checked="task.done"></ion-checkbox>
                 <div class="task-item-info">
                     <ion-label class="task-title"> {{ task.title }} </ion-label>
-                    <ion-label class="task-date-time">{{ formatDate(task.date) }} - {{ task.time }}</ion-label>
+                    <ion-label class="task-date-time">{{ task.date }} - {{ task.time }}</ion-label>
                 </div>
             </div>
         </ion-item>
@@ -38,9 +38,9 @@ const toggleDone = () => {
     emit("toggle", props.task.id);
 };
 
-const formatDate = (date: string) => {
-    return format(new Date(date), "dd/MM/yyyy");
-};
+// const formatDate = (date: string) => {
+//     return format(new Date(date), "dd/MM/yyyy");
+// };
 </script>
 
 <style scoped>
